@@ -1,18 +1,13 @@
 "use client";
 import Image from "next/image";
+import Sidebar from "@/app/components/Sidebar";
 
 export default function Dashboard() {
   return (
-    <div className="min-h-screen bg-[#fff8f3]">
-      <header className="flex justify-between items-center p-6 bg-white shadow-sm">
-        <h1 className="text-xl font-bold text-purple-600">BookSwap</h1>
-        <div className="space-x-4">
-          <span>Hello, Aman Singh</span>
-          <button className="border px-4 py-1 rounded">Logout</button>
-        </div>
-      </header>
+    <div className="flex">
+      <Sidebar />
 
-      <main className="p-8">
+      <main className="flex-1 ml-0 lg:ml-64 bg-[#fff8f3] min-h-screen p-8">
         <h2 className="text-3xl font-bold mb-2">Your Dashboard</h2>
         <p className="mb-8">Find books and manage your requests.</p>
 
@@ -36,7 +31,7 @@ export default function Dashboard() {
                   <button className="mt-2 w-full bg-purple-500 text-white py-1 rounded">View Details</button>
                 </div>
               </div>
-              {/* Add more cards as needed */}
+              {/* Add more cards here */}
             </div>
           </div>
         </div>
