@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import Sidebar from "@/app/components/Sidebar";
+import Sidebar from "@/components/shared/Sidebar";
 
 export default function HomePage() {
   return (
@@ -18,8 +18,8 @@ export default function HomePage() {
             A community platform where book lovers can exchange, give away, or rent books directly.
           </p>
           <div className="space-x-4">
-            <Link href="/signup" className="bg-purple-600 text-white px-6 py-2 rounded">Join the Community</Link>
-            <Link href="/browse" className="border border-purple-600 text-purple-600 px-6 py-2 rounded">Browse Books</Link>
+            <Link href="/signup" className="bg-[#46525e] text-white px-6 py-2 rounded">Join the Community</Link>
+            <Link href="/signup" className="border border-[#46525e] text-[#46525e] px-6 py-2 rounded">Browse Books</Link>
           </div>
         </section>
 

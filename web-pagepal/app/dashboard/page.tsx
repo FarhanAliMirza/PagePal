@@ -1,6 +1,7 @@
 "use client";
+import Sidebar from "@/components/shared/Sidebar";
 import Image from "next/image";
-import Sidebar from "@/app/components/Sidebar";
+
 
 export default function Dashboard() {
   return (
