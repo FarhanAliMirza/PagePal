@@ -8,20 +8,22 @@ export default function HomePage() {
     <div className="flex">
       <Sidebar />
 
-      <main className="flex-1 ml-0 lg:ml-40 bg-[#cbd6da] min-h-screen p-6">
-        <section className="text-center py-20">
-          <h2 className="text-4xl font-extrabold">
+      <main className="flex-1 ml-0 lg:ml-42 bg-[#cbd6da] min-h-screen">
+        {/* Centered Hero Section */}
+        <section className="flex flex-col items-center justify-center text-center h-[80vh] px-4">
+          <h2 className="text-4xl font-extrabold mb-4">
             Share Books, <span className="text-[#46525e]">Spread Knowledge</span>
           </h2>
-          <p className="mt-4 max-w-lg mx-auto text-[#46525e]">
+          <p className="max-w-xl text-[#46525e] mb-6">
             A community platform where book lovers can exchange, give away, or rent books directly.
           </p>
-          <div className="mt-6 space-x-4">
+          <div className="space-x-4">
             <Link href="/signup" className="bg-purple-600 text-white px-6 py-2 rounded">Join the Community</Link>
-            <Link href="/browse" className="border px-6 py-2 rounded">Browse Books</Link>
+            <Link href="/browse" className="border border-purple-600 text-purple-600 px-6 py-2 rounded">Browse Books</Link>
           </div>
         </section>
 
+        {/* Recently Added Section */}
         <section className="p-10">
           <div className="flex justify-between items-center mb-6">
             <h3 className="text-2xl font-bold">Recently Added Books</h3>
