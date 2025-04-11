@@ -5,6 +5,6 @@ const bookRouter = require("./book");
 const router = express.Router();
 
 router.use("/user", userRouter);
-// router.use("/book", bookRouter);
+router.use("/book", bookRouter);
 
 module.exports = router;

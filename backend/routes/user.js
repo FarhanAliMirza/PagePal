@@ -19,7 +19,7 @@ const signinSchema = zod.object({
     username: zod.string(),
     password: zod.string(),
 });
-
+// signup
 router.post("/signup", async (req, res) => {
     const body = req.body;
     const success = signupSchema.safeParse(body);
@@ -37,7 +37,7 @@ router.post("/signup", async (req, res) => {
     const token = jwt.sign({ email: email }, JWT_SECRET);
     res.json({ message: "User created successfully", token: token });
   });
-  
+// signin
   router.post("/signin", async (req, res) => {
     const body = req.body;
     const success = signinSchema.safeParse(body);
@@ -54,7 +54,7 @@ router.post("/signup", async (req, res) => {
       res.json({ message: "User logged in successfully", token: token });
     } else return res.status(411).json({ message: "Error while logging in" });
   });
-
+// get user data
   router.get("/", authMiddleware, async (req, res) => {
     try {
       const user = await User.findOne({ email: req.email });
