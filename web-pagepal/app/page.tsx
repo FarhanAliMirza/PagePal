@@ -1,3 +1,4 @@
+"use client";
 import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
 import { ModeToggle } from "@/components/ModeToggle";
 import { MorphingText } from "@/components/magicui/morphing-text";
@@ -6,7 +7,10 @@ import { Button } from "@/components/ui/button";
 import { ShineBorder } from "@/components/magicui/shine-border";
 import Link from "next/link";
 
+
 export default function Home() {
+
+
   return (
     <div>
       <AnimatedGridPattern className="blur-sm" />
