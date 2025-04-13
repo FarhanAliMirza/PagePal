@@ -9,7 +9,7 @@ const router = express.Router();
 
 const signupSchema = zod.object({
     name: zod.string(),
-    mobileNumber: zod.number(),
+    mobileNumber: zod.string(),
     email: zod.string().email(),
     password: zod.string(),
     owner: zod.boolean(),
