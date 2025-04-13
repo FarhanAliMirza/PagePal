@@ -10,12 +10,17 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ShineBorder } from "@/components/magicui/shine-border";
+import Link from "next/link";
 
 export default function page() {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log("submit");
+    };
   return (
     <div className="flex justify-center items-center h-screen w-screen">
       <Card className="relative w-[350px] overflow-hidden">
-      <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
+        <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
         <CardHeader>
           <CardTitle>Login</CardTitle>
           <CardDescription>
@@ -41,7 +46,9 @@ export default function page() {
           </form>
         </CardContent>
         <CardFooter className="flex justify-between">
-          <Button variant="outline">Register</Button>
+          <Button variant="outline" asChild>
+            <Link href={"/signup"}>Register</Link>
+          </Button>
           <Button>Login</Button>
         </CardFooter>
       </Card>
