@@ -35,7 +35,7 @@ router.post("/signup", async (req, res) => {
     const dbUser = await User.create(body);
     const email = dbUser.email;
     const token = jwt.sign({ email: email }, JWT_SECRET);
-    res.json({ message: "User created successfully", token: token });
+    res.json({ message: "User created successfully", token: token, owner:body.owner });
   });
 // signin
   router.post("/signin", async (req, res) => {
@@ -51,7 +51,7 @@ router.post("/signup", async (req, res) => {
   
     if (existingUser) {
       const token = jwt.sign({ email: existingUser.email }, JWT_SECRET);
-      res.json({ message: "User logged in successfully", token: token });
+      res.json({ message: "User logged in successfully", token: token, owner:existingUser.owner });
     } else return res.status(411).json({ message: "Error while logging in" });
   });
 // get user data
