@@ -1,42 +1,94 @@
 "use client";
-import Sidebar from "@/components/shared/Sidebar";
-import Image from "next/image";
+import Profile from "@/components/shared/Profile";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import BookCard from "@/components/shared/BookCard";
+import { BookPlus, Plus } from "lucide-react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-
-export default function Dashboard() {
+const page = () => {
+  const [books, setBooks] = useState([]);
+  const fetchBooks = async () => {
+    try {
+      const response = await axios.get(
+        "https://pagepal-production-a709.up.railway.app/api/v1/book/userBook",
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      setBooks(response.data.books);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  useEffect(() => {
+    fetchBooks();
+  }, []);
   return (
-    <div className="flex">
-      <Sidebar />
-
-      <main className="flex-1 ml-0 lg:ml-64 bg-[#fff8f3] min-h-screen p-8">
-        <h2 className="text-3xl font-bold mb-2">Your Dashboard</h2>
-        <p className="mb-8">Find books and manage your requests.</p>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded shadow text-center">
-            <div className="w-20 h-20 rounded-full bg-purple-100 flex items-center justify-center text-xl font-bold mx-auto">A</div>
-            <h3 className="font-bold mt-4">Aman Singh</h3>
-            <p className="text-sm">xcriminal369@gmail.com</p>
-            <span className="inline-block mt-2 text-xs px-2 py-1 bg-purple-100 rounded-full">Book Seeker</span>
-            <button className="mt-4 block w-full bg-purple-500 text-white py-2 rounded">Find Books</button>
-          </div>
-
-          <div className="md:col-span-2 space-y-6">
-            <h3 className="text-xl font-bold">Recently Added Books</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="bg-white rounded shadow overflow-hidden">
-                <Image src="/book1.jpg" alt="Book" width={600} height={400} className="w-full h-40 object-cover" />
-                <div className="p-4">
-                  <h4 className="font-bold">To Kill a Mockingbird</h4>
-                  <p className="text-sm">Harper Lee — New York</p>
-                  <button className="mt-2 w-full bg-purple-500 text-white py-1 rounded">View Details</button>
+    <div>
+      <Profile />
+      <div className="flex flex-col h-full w-full justify-center items-center py-2 px-5">
+        <div className="flex flex-row h-full w-full items-center justify-end mb-3 gap-2">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline"><BookPlus/>Add Book</Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle>Add Book</DialogTitle>
+                <DialogDescription>
+                  Add new book to rent or exchange.
+                </DialogDescription>
+              </DialogHeader>
+              {/* <div className="grid gap-4 py-4">
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <Label htmlFor="name" className="text-right">
+                    Name
+                  </Label>
+                  <Input
+                    id="name"
+                    value="Pedro Duarte"
+                    className="col-span-3"
+                  />
                 </div>
-              </div>
-              {/* Add more cards here */}
-            </div>
-          </div>
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <Label htmlFor="username" className="text-right">
+                    Username
+                  </Label>
+                  <Input
+                    id="username"
+                    value="@peduarte"
+                    className="col-span-3"
+                  />
+                </div>
+              </div> */}
+              <DialogFooter>
+                <Button type="submit"><Plus/>Add</Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
         </div>
-      </main>
+        <div className="w-full h-full grid grid-cols-4 gap-3 mt-3">
+        {books.map((book: any) => (
+            <BookCard key={book._id}  book={book}></BookCard>
+          ))}
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default page;

@@ -1,44 +1,47 @@
 "use client";
+import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
+import { ModeToggle } from "@/components/ModeToggle";
+import { MorphingText } from "@/components/magicui/morphing-text";
+import { AuroraText } from "@/components/magicui/aurora-text";
+import { Button } from "@/components/ui/button";
+import { ShineBorder } from "@/components/magicui/shine-border";
 import Link from "next/link";
-import Image from "next/image";
-import Sidebar from "@/components/shared/Sidebar";
 
-export default function HomePage() {
+
+export default function Home() {
+
+
   return (
-    <div className="flex">
-      <Sidebar />
-
-      <main className="flex-1 ml-0 lg:ml-42 bg-[#cbd6da] min-h-screen">
-        {/* Centered Hero Section */}
-        <section className="flex flex-col items-center justify-center text-center h-[80vh] px-4">
-          <h2 className="text-4xl font-extrabold mb-4">
-            Share Books, <span className="text-[#46525e]">Spread Knowledge</span>
-          </h2>
-          <p className="max-w-xl text-[#46525e] mb-6">
-            A community platform where book lovers can exchange, give away, or rent books directly.
-          </p>
-          <div className="space-x-4">
-            <Link href="/signup" className="bg-[#46525e] text-white px-6 py-2 rounded">Join the Community</Link>
-            <Link href="/signup" className="border border-[#46525e] text-[#46525e] px-6 py-2 rounded">Browse Books</Link>
+    <div>
+      <AnimatedGridPattern className="blur-sm" />
+      <ShineBorder
+        shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+        borderWidth={2}
+      />
+      <div className="h-screen w-screen">
+        <div className="flex justify-end items-center p-3">
+          <ModeToggle />
+        </div>
+        <div className="flex flex-col justify-center items-center h-3/4 w-full  ">
+          <MorphingText texts={["Swap", "Share", "Discover"]} />
+          <div className="text-3xl md:text-7xl font-bold dark:text-blue-300 text-blue-600">
+            Books with
+            <AuroraText
+              speed={5}
+              colors={["#00FFFF", "#00BFFF", "#007BFF", "#0047AB"]}
+              className="m-3"
+            >
+              PagePal
+            </AuroraText>
           </div>
-        </section>
-
-        {/* Recently Added Section */}
-        <section className="p-10">
-          <div className="flex justify-between items-center mb-6">
-            <h3 className="text-2xl font-bold">Recently Added Books</h3>
-            <Link href="/browse" className="text-purple-600">View all →</Link>
+          <div className="m-3 text-lg md:text-2xl text-center font-light text-black dark:text-white">
+            Exchange, lend, or borrow books in your neighborhood with ease.
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <div className="bg-white shadow rounded p-4">
-              <Image src="/book1.jpg" alt="Book" width={300} height={200} className="rounded mb-2" />
-              <h4 className="font-bold">To Kill a Mockingbird</h4>
-              <p className="text-sm text-gray-600">Harper Lee — New York</p>
-              <Link href="/login" className="mt-2 inline-block bg-purple-500 text-white px-4 py-1 rounded">View Details</Link>
-            </div>
-          </div>
-        </section>
-      </main>
+          <Button asChild className="m-4">
+            <Link href={"/signin"}>Get Started</Link>
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }
