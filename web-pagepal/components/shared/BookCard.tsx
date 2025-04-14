@@ -12,18 +12,10 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import { Phone, Mail } from "lucide-react";
 
-type bookType = {
-  name: string;
-  author: string;
-  genre: string;
-  city: string;
-  mobileNumber: string;
-  email: string;
-};
+const BookCard = (props : any | undefined ) => {
 
-const BookCard = (bookData : any ) => {
   const { theme } = useTheme();
-  const book = bookData.book;
+  const book = props.book;
   return (
     <Card className="p-0 max-w-sm w-full shadow-none border-none">
       <MagicCard

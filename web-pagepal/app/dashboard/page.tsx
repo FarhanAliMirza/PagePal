@@ -10,8 +10,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import BookCard from "@/components/shared/BookCard";
 import { BookPlus, Plus } from "lucide-react";
 import { useState, useEffect } from "react";

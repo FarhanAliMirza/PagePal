@@ -20,7 +20,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -66,6 +65,7 @@ export const SignInForm = () => {
     }
     }
     catch(e){
+      console.log(e);
       toast.error("Invalid email or password !");
     }
   };

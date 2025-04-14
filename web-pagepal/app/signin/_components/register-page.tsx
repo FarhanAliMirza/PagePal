@@ -3,14 +3,14 @@ import { z } from "zod";
 import { SignUpForm } from "./sign-up-form";
 import { SignInForm } from "./sign-in-form";
 
-const loginSchema = z.object({
-  email: z.string().min(1, {
-    message: "Email is required",
-  }),
-  password: z.string().min(6, {
-    message: "Password must be at least 6 characters",
-  }),
-});
+// const loginSchema = z.object({
+//   email: z.string().min(1, {
+//     message: "Email is required",
+//   }),
+//   password: z.string().min(6, {
+//     message: "Password must be at least 6 characters",
+//   }),
+// });
 
 export function RegisterPage() {
   

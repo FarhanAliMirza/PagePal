@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 
 const page = () => {
   const [books, setBooks] = useState([]);
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
   const fetchBooks = async () => {
     try {
       const response = await axios.get(
