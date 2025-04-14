@@ -105,50 +105,56 @@
   50% {
     background-position: 100% 100%;}
   to {
-    background-position: 0% 0%;}}}
+    background-position: 0% 0%;}}
+  --animate-shiny-text: shiny-text 8s infinite;
+  @keyframes shiny-text {
+  0%, 90%, 100% {
+    background-position: calc(-100% - var(--shiny-width)) 0;}
+  30%, 60% {
+    background-position: calc(100% + var(--shiny-width)) 0;}}}
 
     :root {
       --radius: 0.625rem;
-    
+
       /* Brand & Layout */
       --background: oklch(97.5% 0.005 85); /* Soft Ivory */
       --foreground: oklch(30% 0.01 0); /* Slate Grey text */
-    
+
       --card: oklch(100% 0 0);
       --card-foreground: oklch(30% 0.01 0);
-    
+
       --popover: oklch(100% 0 0);
       --popover-foreground: oklch(30% 0.01 0);
-    
+
       /* Primary = Midnight Indigo */
       --primary: oklch(24% 0.04 260);
       --primary-foreground: oklch(98.5% 0 0);
-    
+
       /* Accent = Amber Gold */
       --secondary: oklch(88% 0.16 85);
       --secondary-foreground: oklch(24% 0.04 260);
-    
+
       --muted: oklch(88% 0.02 85);
       --muted-foreground: oklch(55% 0.01 0);
-    
+
       /* Leaf Green = Secondary Accent */
       --accent: oklch(62% 0.14 145);
       --accent-foreground: oklch(15% 0.01 0);
-    
+
       --destructive: oklch(57% 0.25 27.325);
-    
+
       /* UI */
       --border: oklch(92.2% 0.005 85);
       --input: oklch(92.2% 0.005 85);
       --ring: oklch(70.8% 0.005 85);
-    
+
       /* Charts (retained for fun visuals) */
       --chart-1: oklch(64.6% 0.222 41.116);
       --chart-2: oklch(60% 0.118 184.704);
       --chart-3: oklch(39.8% 0.07 227.392);
       --chart-4: oklch(82.8% 0.189 84.429);
       --chart-5: oklch(76.9% 0.188 70.08);
-    
+
       /* Sidebar */
       --sidebar: oklch(98.5% 0.005 85);
       --sidebar-foreground: oklch(30% 0.01 0);
@@ -158,7 +164,7 @@
       --sidebar-accent-foreground: oklch(24% 0.04 260);
       --sidebar-border: oklch(92.2% 0.005 85);
       --sidebar-ring: oklch(70.8% 0.005 85);
-    
+
       /* Colors (for chart visual aids or badges) */
       --color-1: hsl(45 90% 52%);  /* Amber Gold */
       --color-2: hsl(145 58% 62%); /* Leaf Green */
@@ -166,43 +172,42 @@
       --color-4: hsl(145 38% 45%); /* Medium green */
       --color-5: hsl(44 33% 97%);  /* Ivory */
     }
-    
 
     .dark {
       --background: oklch(14.5% 0.01 0); /* Near black */
       --foreground: oklch(98.5% 0 0);
-    
+
       --card: oklch(24% 0.03 260);
       --card-foreground: oklch(98.5% 0 0);
-    
+
       --popover: oklch(24% 0.03 260);
       --popover-foreground: oklch(98.5% 0 0);
-    
+
       --primary: oklch(82% 0.02 260); /* Light Indigo */
       --primary-foreground: oklch(24% 0.03 260);
-    
+
       --secondary: oklch(45% 0.10 145); /* Softer green */
       --secondary-foreground: oklch(98.5% 0 0);
-    
+
       --muted: oklch(36% 0.01 0);
       --muted-foreground: oklch(70.8% 0.01 0);
-    
+
       --accent: oklch(72% 0.16 85); /* Amber Gold variant */
       --accent-foreground: oklch(15% 0.01 0);
-    
+
       --destructive: oklch(70.4% 0.191 22.216);
-    
+
       --border: oklch(100% 0 0 / 10%);
       --input: oklch(100% 0 0 / 15%);
       --ring: oklch(55.6% 0.01 0);
-    
+
       /* Charts (adapted for dark contrast) */
       --chart-1: oklch(48.8% 0.243 264.376);
       --chart-2: oklch(69.6% 0.17 162.48);
       --chart-3: oklch(76.9% 0.188 70.08);
       --chart-4: oklch(62.7% 0.265 303.9);
       --chart-5: oklch(64.5% 0.246 16.439);
-    
+
       /* Sidebar */
       --sidebar: oklch(24% 0.03 260);
       --sidebar-foreground: oklch(98.5% 0 0);
@@ -212,14 +217,13 @@
       --sidebar-accent-foreground: oklch(98.5% 0 0);
       --sidebar-border: oklch(100% 0 0 / 10%);
       --sidebar-ring: oklch(55.6% 0.01 0);
-    
+
       --color-1: hsl(45 90% 52%);
       --color-2: hsl(145 58% 62%);
       --color-3: hsl(210 29% 24%);
       --color-4: hsl(145 38% 45%);
       --color-5: hsl(0 0% 90%);
     }
-    
 
 @layer base {
   * {

@@ -9,12 +9,19 @@ import { User, LayoutDashboard, Moon, Sun, LogOut } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
-
+import {  useState, useEffect } from "react";
 
 const Profile = () => {
   const router = useRouter();
-  const owner = localStorage.getItem("owner");
+  const [owner, setOwner] = useState(false);
   const { setTheme } = useTheme();
+
+  useEffect(() => {
+    if (localStorage.getItem("owner")) {
+      setOwner(true);
+    }
+  }, []);
+
   const handleLogout = () => {
     console.log("logout");
     localStorage.removeItem("token");
@@ -39,11 +46,22 @@ const Profile = () => {
           </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="gap-2">
-          <DropdownMenuItem onClick={()=>{router.push("/dashboard")}} className="mb-1">
-            <LayoutDashboard className="w-4 h-4" />
-            Dashboard
-          </DropdownMenuItem>
-          <Separator />
+          {owner ? (
+            <>
+              <DropdownMenuItem
+                onClick={() => {
+                  router.push("/dashboard");
+                }}
+                className="mb-1"
+              >
+                <LayoutDashboard className="w-4 h-4" />
+                Dashboard
+              </DropdownMenuItem>
+              <Separator />
+            </>
+          ) : (
+            <></>
+          )}
           <DropdownMenuItem onClick={handleThemeChange}>
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-2 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0">
