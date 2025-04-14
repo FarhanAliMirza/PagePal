@@ -83,13 +83,14 @@ export const SignUpForm = () => {
         signUpData
       );
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("owner", response.data.owner);
       toast.success("Signup successful !");
       if (response.data.owner) {
         router.push("/dashboard");
       } else {
         router.push("/discover");
       }
-    } catch (e : any) {
+    } catch (e: any) {
       if (e.response.status === 411) {
         toast.error("User already exists !");
       } else {
@@ -133,13 +134,13 @@ export const SignUpForm = () => {
                   <FormItem>
                     <FormLabel>Mobile Number</FormLabel>
                     <FormControl>
-                      <div className="flex items-center w-full max-w-md rounded-lg border bg-background text-foreground">
-                        <div className="flex items-center px-4 text-muted-foreground">
+                      <div className="flex items-center w-full max-w-md rounded-lg border border-border bg-inherit text-foreground shadow-sm">
+                        <div className="flex items-center px-4 text-muted-foreground bg-inherit h-full rounded-l-lg">
                           +91
                         </div>
                         <Input
                           placeholder="Mobile Number"
-                          className="flex-1 rounded-l-none rounded-r-lg border-0 py-2 pr-4 text-sm focus:outline-none focus:ring-0"
+                          className="flex-1 rounded-r-lg rounded-l-none border-0 py-2 pr-4 text-sm bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                           {...field}
                         />
                       </div>

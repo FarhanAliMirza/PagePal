@@ -56,6 +56,7 @@ export const SignInForm = () => {
     try{
       const response = await axios.post("https://pagepal-production-a709.up.railway.app/api/v1/user/signin", data);
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("owner", response.data.owner);
       toast.success("Login successful !");
       if(response.data.owner){
         router.push("/dashboard");
