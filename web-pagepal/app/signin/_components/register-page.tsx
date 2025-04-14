@@ -1,5 +1,4 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { z } from "zod";
 import { SignUpForm } from "./sign-up-form";
 import { SignInForm } from "./sign-in-form";
 

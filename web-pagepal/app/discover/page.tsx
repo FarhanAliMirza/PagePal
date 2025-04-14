@@ -22,7 +22,7 @@ const page = () => {
       );
       setBooks(response.data.books);
     } catch (e) {
-      console.log(e);
+      console.log("error");
     }
   };
   useEffect(() => {

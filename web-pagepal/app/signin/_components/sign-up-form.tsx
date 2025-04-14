@@ -1,5 +1,5 @@
 import { useId, useState } from "react";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -90,7 +90,7 @@ export const SignUpForm = () => {
       } else {
         router.push("/discover");
       }
-    } catch (e: any | AxiosError) {
+    } catch (e: any | undefined) {
       if (e.response.status === 411) {
         toast.error("User already exists !");
       } else {
