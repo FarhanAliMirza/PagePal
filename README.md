@@ -50,3 +50,6 @@
   - Plan: Vercel
 
 ---
+
+### 🧩 Backend (To-Do)
+- [] Remove books that are exchanged from the listings

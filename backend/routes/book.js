@@ -47,23 +47,23 @@ router.get("/bulk", authMiddleware, async (req, res) => {
 router.get("/search", authMiddleware, async (req, res) => {
   if (!req.query.title) {
     try {
-      const book = await Book.find({ city: req.query.city });
-      res.json({ message: "Book retrieved successfully", book });
+      const books = await Book.find({ city: req.query.city });
+      res.json({ message: "Book retrieved successfully", books });
     } catch (err) {
       res.json({ message: "No books found!!" });
     }
   } else if(!req.query.city) {
     try {
-      const book = await Book.find({ title: req.query.title });
-      res.json({ message: "Book retrieved successfully", book });
+      const books = await Book.find({ title: req.query.title });
+      res.json({ message: "Book retrieved successfully", books });
     } catch (err) {
       res.json({ message: "No books found!!" });
     }
   }
   else{
     try {
-        const book = await Book.find({ title: req.query.title, city: req.query.city });
-        res.json({ message: "Book retrieved successfully", book });
+        const books = await Book.find({ title: req.query.title, city: req.query.city });
+        res.json({ message: "Book retrieved successfully", books });
       } catch (err) {
         res.json({ message: "No books found!!" });
       }
@@ -72,8 +72,8 @@ router.get("/search", authMiddleware, async (req, res) => {
 //get all books of a user
 router.get("/userBooks", authMiddleware, async (req, res) => {
   try {
-    const book = await Book.find({ contactEmail: req.email });
-    res.json({ message: "Book retrieved successfully", book });
+    const books = await Book.find({ contactEmail: req.email });
+    res.json({ message: "Book retrieved successfully", books });
   } catch (err) {
     res.json({ message: "No books found!!" });
   }

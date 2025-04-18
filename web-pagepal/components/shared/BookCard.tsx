@@ -13,7 +13,6 @@ import { useTheme } from "next-themes";
 import { Phone, Mail } from "lucide-react";
 
 const BookCard = (props : any | undefined ) => {
-  console.log(props);
   const { theme } = useTheme();
   const book = props.book;
   return (
