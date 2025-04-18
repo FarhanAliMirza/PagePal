@@ -2,7 +2,6 @@
 import Profile from "@/components/shared/Profile";
 import AddBook from "./_components/AddBook";
 import UserBooks from "./_components/UserBooks";
-import { User } from "lucide-react";
 
 const page = () => {
   

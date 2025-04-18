@@ -59,6 +59,7 @@ const Discover = () => {
   };
 
   const handleSearch = (data: SearchBooksProps) => {
+    console.log(data);
     fetchBooks();
   };
 

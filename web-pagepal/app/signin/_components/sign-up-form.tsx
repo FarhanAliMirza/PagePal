@@ -1,5 +1,6 @@
 import { useId, useState } from "react";
 import axios from "axios";
+import { AxiosError } from "axios";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -31,6 +32,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Axis } from "motion/react";
 
 const signupShema = z.object({
   name: z.string().min(1, {
@@ -90,7 +92,7 @@ export const SignUpForm = () => {
       } else {
         router.push("/discover");
       }
-    } catch (e: any | undefined) {
+    } catch (e: any) {
       if (e.response.status === 411) {
         toast.error("User already exists !");
       } else {

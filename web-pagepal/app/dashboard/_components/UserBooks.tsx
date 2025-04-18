@@ -17,7 +17,7 @@ const UserBooks = () => {
       );
       setBooks(response.data.books);
     } catch (e) {
-      console.log("error");
+      console.log("error",e);
     }
   };
   useEffect(() => {
