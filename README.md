@@ -1,8 +1,7 @@
-
-
 ## 🚧 Project Progress
 
 ### ✅ Backend (Completed)
+
 - [x] **User Registration**
   - Users are stored in MongoDB with role, email, password, etc.
 - [x] **Mock Login Endpoint**
@@ -23,6 +22,7 @@
 ---
 
 ### ✅ Frontend (Completed)
+
 - [x] **Hero Section**
   - Intro to PagePal with CTA
 - [x] **Register/Login Screens**
@@ -35,14 +35,15 @@
 ---
 
 ### 🧩 Frontend (To-Do)
-- [ ] **Owner Dashboard**
+
+- [x] **Owner Dashboard**
   - Add new book
   - Edit/Delete listings
   - Mark as Rented/Exchanged
-- [ ] **Seeker Dashboard**
+- [x] **Seeker Dashboard**
   - Browse available listings
   - View owner contact info
-- [ ] **Book Listing UI**
+- [x] **Book Listing UI**
   - Display: Title, Author, Location, Owner Info, Genre (optional)
 - [ ] **Search/Filter**
   - Filter books by title, location (optional: genre)
@@ -52,4 +53,5 @@
 ---
 
 ### 🧩 Backend (To-Do)
+
 - [] Remove books that are exchanged from the listings

@@ -1,5 +1,5 @@
 "use client";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import {
   Form,
   FormControl,
@@ -46,7 +46,6 @@ const Discover = () => {
         ? `https://pagepal-production-a709.up.railway.app/api/v1/book/search?title=${search}`
         : "https://pagepal-production-a709.up.railway.app/api/v1/book/bulk";
 
-
       const response = await axios.get(url, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -60,7 +59,7 @@ const Discover = () => {
   };
 
   const handleSearch = (data: SearchBooksProps) => {
-      fetchBooks();
+    fetchBooks();
   };
 
   useEffect(() => {
@@ -100,8 +99,8 @@ const Discover = () => {
           </form>
         </Form>
       </div>
-      {books? (
-        <div className="w-full h-full grid grid-cols-4 gap-3 mt-3">
+      {books ? (
+        <div className="w-full h-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-3">
           {books.map((book) => (
             <BookCard key={book._id} book={book} />
           ))}
